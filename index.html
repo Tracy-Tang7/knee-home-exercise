@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bilingual knee home exercise videos and standardized exercise record forms.">
+  <title>Knee Home Exercise Program</title>
+  <style>
+    :root {
+      --navy: #16324b;
+      --blue: #2879a9;
+      --teal: #16877d;
+      --ink: #1f2d37;
+      --muted: #62727e;
+      --line: #dce6eb;
+      --paper: #fff;
+      --cream: #f6f5ef;
+      --shadow: 0 14px 38px rgba(22, 50, 75, .10);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 0%, rgba(40,121,169,.13), transparent 30rem),
+        linear-gradient(#f9fcfd, var(--cream));
+      font: 16px/1.6 Arial, Helvetica, sans-serif;
+    }
+    a { color: inherit; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(220,230,235,.9);
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(12px);
+    }
+    nav {
+      width: min(1180px, calc(100% - 32px));
+      min-height: 68px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--navy);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+    }
+    .nav-links { display: flex; gap: 21px; color: var(--muted); font-size: 14px; }
+    .nav-links a { text-decoration: none; }
+    .nav-links a:hover { color: var(--blue); }
+    .hero {
+      width: min(1180px, calc(100% - 32px));
+      margin: auto;
+      padding: 76px 0 54px;
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 46px;
+      align-items: center;
+    }
+    .eyebrow {
+      margin: 0 0 13px;
+      color: var(--teal);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(40px, 6vw, 68px);
+      line-height: 1.07;
+      letter-spacing: -.04em;
+    }
+    .lead { max-width: 730px; margin: 22px 0 0; color: var(--muted); font-size: 20px; }
+    .overview {
+      padding: 27px;
+      border-radius: 24px;
+      color: #fff;
+      background: linear-gradient(145deg, var(--navy), #205f76);
+      box-shadow: var(--shadow);
+    }
+    .overview h2 { margin: 0 0 5px; color: #fff; font-size: 31px; }
+    .overview p { margin: 0; opacity: .8; }
+    .stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 9px; margin-top: 21px; }
+    .stat { padding: 12px 6px; border-radius: 13px; text-align: center; background: rgba(255,255,255,.09); }
+    .stat b, .stat span { display: block; }
+    .stat b { font-size: 23px; }
+    .stat span { font-size: 11px; opacity: .8; }
+    main { width: min(1180px, calc(100% - 32px)); margin: auto; }
+    .program { padding: 33px 0 58px; scroll-margin-top: 75px; }
+    .heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .number { color: var(--teal); font-size: 13px; font-weight: 700; letter-spacing: .12em; }
+    h2 { margin: 3px 0 0; color: var(--navy); font-size: clamp(28px,4vw,40px); line-height: 1.2; }
+    .description { margin: 7px 0 0; color: var(--muted); }
+    .download {
+      flex: none;
+      padding: 10px 15px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: var(--blue);
+      background: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 6px 18px rgba(22,50,75,.06);
+    }
+    .download:hover { border-color: var(--blue); transform: translateY(-1px); }
+    .grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; }
+    article {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--paper);
+      box-shadow: 0 8px 26px rgba(22,50,75,.07);
+      transition: .18s ease;
+    }
+    article:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .frame { aspect-ratio: 16/9; background: #0f1d29; }
+    video { width: 100%; height: 100%; display: block; object-fit: contain; }
+    .body { padding: 19px 20px 21px; }
+    .phase {
+      display: inline-block;
+      padding: 4px 9px;
+      border-radius: 999px;
+      color: var(--teal);
+      background: #e7f6f3;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    h3 { min-height: 51px; margin: 10px 0 6px; color: var(--navy); font-size: 18px; line-height: 1.4; }
+    .card-note { min-height: 43px; margin: 0 0 14px; color: var(--muted); font-size: 14px; }
+    .direct { color: var(--blue); font-size: 14px; font-weight: 700; text-decoration: none; }
+    .direct:hover { text-decoration: underline; }
+    .records {
+      margin: 15px 0 80px;
+      padding: 33px;
+      border-radius: 24px;
+      color: #fff;
+      background: linear-gradient(135deg, #153550, #19796f);
+      box-shadow: var(--shadow);
+      scroll-margin-top: 85px;
+    }
+    .records h2 { color: #fff; }
+    .records > p { margin: 8px 0 21px; color: rgba(255,255,255,.76); }
+    .record-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; }
+    .record {
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 14px;
+      background: rgba(255,255,255,.08);
+      text-decoration: none;
+    }
+    .record:hover { background: rgba(255,255,255,.14); }
+    .record b, .record span { display: block; }
+    .record span { margin-top: 5px; color: rgba(255,255,255,.7); font-size: 13px; }
+    footer { padding: 25px 16px 42px; color: var(--muted); text-align: center; font-size: 13px; }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .overview { max-width: 520px; }
+      .grid, .record-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hero { padding-top: 48px; }
+      .heading { display: block; }
+      .download { display: inline-block; margin-top: 16px; }
+      .grid, .record-grid { grid-template-columns: 1fr; }
+      .records { padding: 25px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="Main navigation">
+      <a class="brand" href="#top"><span class="mark">K</span>Knee Home Exercise Program</a>
+      <div class="nav-links">
+        <a href="#open-chain">Open-Chain</a>
+        <a href="#open-closed">Open-Closed Chain</a>
+        <a href="#core-knee">Core-Knee</a>
+        <a href="#records">Exercise Records</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" id="top">
+    <div>
+      <p class="eyebrow">Bilingual Exercise Video Library</p>
+      <h1>Knee Home Exercise Program</h1>
+      <p class="lead">A structured library of bilingual exercise videos organized by training program and phase, with standardized English exercise record forms.</p>
+    </div>
+    <aside class="overview">
+      <h2>Structured Training</h2>
+      <p>Three progressive programs for guided home exercise.</p>
+      <div class="stats">
+        <div class="stat"><b>3</b><span>PROGRAMS</span></div>
+        <div class="stat"><b>9</b><span>VIDEOS</span></div>
+        <div class="stat"><b>3</b><span>RECORDS</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <main>
+    <section class="program" id="open-chain">
+      <div class="heading">
+        <div><span class="number">PROGRAM 01</span><h2>Knee Open-Chain Training</h2><p class="description">Isolated knee exercises performed in an open kinetic chain.</p></div>
+        <a class="download" href="https://github.com/Tracy-Tang7/knee-home-exercise/releases/download/v1.0.0/knee-open-chain-record.docx">Download Exercise Record</a>
+      </div>
+      <div class="grid">
+        <article><div class="frame"><video controls preload="metadata" playsinline src="https://github.com/Tracy-Tang7/knee-home-exercise/releases/download/v1.0.0/knee-open-chain-isometric.mp4"></video></div><div class="body"><span class="phase">PHASE I</span><h3>Isometric Contraction</h3><p class="card-note">Static muscle activation without visible joint movement.</p><a class="direct" href="https://github.com/Tracy-Tang7/knee-home-exercise/releases/download/v1.0.0/knee-open-chain-isometric.mp4">Open video separately</a></div></article>
+        <article><div class="frame"><video controls preload="metadata" playsinline src="https://github.com/Tracy-Tang7/knee-home-exercise/releases/download/v1.0.0/knee-open-chain-non-weight-bearing.mp4"></video></div><div class="body"><span class="phase">PHASE II</span><h3>Non-weight-bearing Strength Training</h3><p class="card-note">Strength exercises performed without external loading.</p><a class="direct" href="https://github.com/Tracy-Tang7/knee-home-exercise/releases/download/v1.0.0/knee-open-chain-non-weight-bearing.mp4">Open video separately</a></div></article>
+        <article><div class="frame"><video controls preload="metadata" playsinline src="https://github.com/Tracy-Tang7/knee-home-exercise/releases/download/v1.0.0/knee-open-chain-weight-bearing.mp4"></video></div><div class="body"><span class="phase">PHASE III</span><h3>Weight-bearing Strength Training</h3><p class="card-note">Progressive strength exercises performed with loading.</p><a class="direct" href="https://github.com/Tracy-Tang7/knee-home-exercise/releases/download/v1.0.0/knee-open-chain-weight-bearing.mp4">Open video separately</a></div></article>
+      </div>
+    </section>
+
+    <section class="program" id="open-closed">
+      <div class="heading">
+        <div><span class="number">PROGRAM 02</span><h2>Knee Open-Closed Chain Training</h2><p class="description">A combined program of open- and closed-chain knee exercises.</p></div>
+        <a class="download" href="https://github.com/Tracy-Tang7/knee-home-exercise/releases/download/v1.0.0/knee-open-closed-record.docx">Download Exercise Record</a>
+      </div>
+      <div class="grid">
+        <article><div class="frame"><video controls preload="metadata" playsinline src="https://github.com/Tracy-Tang7/knee-home-exercise/releases/download/v1.0.0/knee-open-closed-isometric.mp4"></video></div><div class="body"><span class="phase">PHASE I</span><h3>Isometric Contraction</h3><p class="card-note">Static muscle activation without visible joint movement.</p><a class="direct" href="https://github.com/Tracy-Tang7/knee-home-exercise/releases/download/v1.0.0/knee-open-closed-isometric.mp4">Open video separately</a></div></article>
+        <article><div class="frame"><video controls preload="metadata" playsinline src="https://github.com/Tracy-Tang7/knee-home-exercise/releases/download/v1.0.0/knee-open-closed-non-weight-bearing.mp4"></video></div><div class="body"><span class="phase">PHASE II</span><h3>Non-weight-bearing Strength Training</h3><p class="card-note">Strength exercises performed without external loading.</p><a class="direct" href="https://github.com/Tracy-Tang7/knee-home-exercise/releases/download/v1.0.0/knee-open-closed-non-weight-bearing.mp4">Open video separately</a></div></article>
+        <article><div class="frame"><video controls preload="metadata" playsinline src="https://github.com/Tracy-Tang7/knee-home-exercise/releases/download/v1.0.0/knee-open-closed-weight-bearing.mp4"></video></div><div class="body"><span class="phase">PHASE III</span><h3>Weight-bearing Strength Training</h3><p class="card-note">Progressive strength exercises performed with loading.</p><a class="direct" href="https://github.com/Tracy-Tang7/knee-home-exercise/releases/download/v1.0.0/knee-open-closed-weight-bearing.mp4">Open video separately</a></div></article>
+      </div>
+    </section>
+
+    <section class="program" id="core-knee">
+      <div class="heading">
+        <div><span class="number">PROGRAM 03</span><h2>Core-Knee Kinetic Chain Training</h2><p class="description">Integrated core and knee exercises across the kinetic chain.</p></div>
+        <a class="download" href="https://github.com/Tracy-Tang7/knee-home-exercise/releases/download/v1.0.0/core-knee-record.docx">Download Exercise Record</a>
+      </div>
+      <div class="grid">
+        <article><div class="frame"><video controls preload="metadata" playsinline src="https://github.com/Tracy-Tang7/knee-home-exercise/releases/download/v1.0.0/core-knee-isometric.mp4"></video></div><div class="body"><span class="phase">PHASE I</span><h3>Isometric Contraction</h3><p class="card-note">Static muscle activation without visible joint movement.</p><a class="direct" href="https://github.com/Tracy-Tang7/knee-home-exercise/releases/download/v1.0.0/core-knee-isometric.mp4">Open video separately</a></div></article>
+        <article><div class="frame"><video controls preload="metadata" playsinline src="https://github.com/Tracy-Tang7/knee-home-exercise/releases/download/v1.0.0/core-knee-non-weight-bearing.mp4"></video></div><div class="body"><span class="phase">PHASE II</span><h3>Non-weight-bearing Strength Training</h3><p class="card-note">Strength exercises performed without external loading.</p><a class="direct" href="https://github.com/Tracy-Tang7/knee-home-exercise/releases/download/v1.0.0/core-knee-non-weight-bearing.mp4">Open video separately</a></div></article>
+        <article><div class="frame"><video controls preload="metadata" playsinline src="https://github.com/Tracy-Tang7/knee-home-exercise/releases/download/v1.0.0/core-knee-weight-bearing.mp4"></video></div><div class="body"><span class="phase">PHASE III</span><h3>Weight-bearing Strength Training</h3><p class="card-note">Progressive strength exercises performed with loading.</p><a class="direct" href="https://github.com/Tracy-Tang7/knee-home-exercise/releases/download/v1.0.0/core-knee-weight-bearing.mp4">Open video separately</a></div></article>
+      </div>
+    </section>
+
+    <section class="records" id="records">
+      <h2>Exercise Record Forms</h2>
+      <p>Download the standardized English forms for digital completion or printing.</p>
+      <div class="record-grid">
+        <a class="record" href="https://github.com/Tracy-Tang7/knee-home-exercise/releases/download/v1.0.0/knee-open-chain-record.docx"><b>Knee Open-Chain Training</b><span>Download Word document</span></a>
+        <a class="record" href="https://github.com/Tracy-Tang7/knee-home-exercise/releases/download/v1.0.0/knee-open-closed-record.docx"><b>Knee Open-Closed Chain Training</b><span>Download Word document</span></a>
+        <a class="record" href="https://github.com/Tracy-Tang7/knee-home-exercise/releases/download/v1.0.0/core-knee-record.docx"><b>Core-Knee Kinetic Chain Training</b><span>Download Word document</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>Bilingual knee home exercise resources. Follow the exercise program prescribed by your healthcare professional.</footer>
+  <script>
+    const videos = document.querySelectorAll("video");
+    videos.forEach(video => video.addEventListener("play", () => {
+      videos.forEach(other => { if (other !== video && !other.paused) other.pause(); });
+    }));
+  </script>
+</body>
+</html>
